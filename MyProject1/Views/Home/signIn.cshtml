@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "signIn";
+    Layout = "~/Views/Shared/general.cshtml";
+}
+<link href="~/Content/css/all.css" rel="stylesheet" />
+<link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+<script src="~/Content/js/bootstrap.bundle.js"></script>
+<style>
+    .a {
+        height: 700px;
+        background: #F1F3F6;
+    }
+
+    .b {
+        padding: 50px 200px;
+    }
+
+    .c {
+        min-height: 400px;
+        background-color: white;
+        box-shadow: 0px 0px 20px 5px rgba(114, 110, 110,.5);
+        border-radius: 20px;
+    }
+</style>
+<form method="post">
+    <div class="container-fluid a">
+        <div class="row b">
+            <div class="col-sm-7" style="padding-top: 150px;">
+                <span class="fs-2">10 Minute</span><b class="fs-1 txt-mycolor">Zepto</b><br /><span class="fs-4">10 minute Zepto helps you connect and buy <br /> fresh vegetables and deliver at your doorstep with Ease. </span>
+            </div>
+            <div class="col-sm-5 c mt-5 py-4">
+                <h2 style="text-align:center;">User <span class="txt-mycolor">Login</span></h2>
+                <b>Email</b>
+                <input type="email" required name="email" placeholder="Email address or phone number" style="border: 2px solid purple" class="form-control mb-3" />
+                <b>Password</b>
+                <input type="password" required name="password" placeholder="Password" class="form-control" /><br/>
+                <input type="Submit" value="Sign in" class="bg-mycolor form-control mt-3" style="color: White;" />
+                <br />
+                <center><a href="#" style="text-decoration: none;" class="mt-4 txt-mycolor">Forgotton password?</a></center>
+                <br />
+                <hr>
+                <a href="/home/signUp">
+                   <input type="button" value="REGISTER NOW" style="color:purple; height:50px; width:250px; margin-left: 100px;" class="fs-4 btn btn-outline-warning"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+

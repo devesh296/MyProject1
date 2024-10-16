@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/css/all.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/Content/js/bootstrap.bundle.js"></script>
+    <style>
+        :root {
+            --bgcolor:linear-gradient(45deg,#4A148C,#BA68C8);
+            --txtcolor:#4A148C;
+        }
+        .bg-mycolor {
+            background: var(--bgcolor) !important;
+        }
+
+        .txt-mycolor {
+            color: var(--txtcolor);
+        }
+        #menu {
+            background:transparent !important;
+        }
+         #menu ul li a {
+                color: white;
+         }
+        .ufooter
+        {
+            min-height:100px;
+        }
+        .bfooter {
+            min-height: 50px;
+        }
+        .ufooter a {
+            text-decoration: none;
+        }
+        .z {
+            padding-left: 200px;
+        }
+        .y {
+            color: gray;
+        }
+        .w:hover
+        {
+            background: #FFCDD2;
+            color: black !important;
+            transform: scale(1.1);
+            border-radius: 5px;
+        }
+        .v:hover{
+            color:pink;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container-fluid">
+        <div class="row text-bg-dark text-center">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 ">
+                Welcome to Admin Zone
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-12"></div>
+        </div>
+        <div class="row menu" style="min-height:50px;">
+            <!--start menu-->
+            <nav class="navbar navbar-dark bg-dark sticky-top pt-1" style="margin-top:.1%;">
+                <div class="container-fluid">
+                    <a class="navbar-brand fs-3" href="#">10 minute<span class="txt-mycolor"> Zepto <i class="fa-solid fa-truck-fast text-light"></i></span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active v fs-3" aria-current="page" href="/Admin/index">Dashboard<i class="fa-solid fa-bars txt-mycolor"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link v" href="/Admin/Category">Add Category</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link v" href="/Admin/SubCategory">Add Sub Category</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link v" href="/Admin/Product">Add Product</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link v" href="/Admin/Orders">Order</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link v" href="/Admin/Password">Change Password</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link v" href="/Admin/Logout">Logout</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle v" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Management
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        <li><a class="dropdown-item v" href="/Admin/Contact">Contact</a></li>
+                                        <li><a class="dropdown-item v" href="/Admin/ManageProduct">Product</a></li>
+                                        <li><a class="dropdown-item" href="/Admin/User">User</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item v" href="/Admin/Cart">Cart</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <form class="d-flex mt-3" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!--end menu-->
+        </div>
+ <div class="row">
+     <div class="col-sm-12" style="min-height:560px;">
+         @RenderBody()
+     </div>
+ </div>
+        <div class="row footer text-center text-bg-dark fs-3 mt-5">
+            <div class="col-sm-6">
+                <i class="fa-solid fa-envelope"></i> &copy;<a href="#" style="text-decoration:none;color:white;">M M I T Siddharthnagar</a>
+            </div>
+            <div class="col-sm-6">
+                Devloped by: <i class="fa-regular fa-registered fs-3"></i>Devesh Chaturvedi
+            </div>
+        </div>
+    </div>
+</body>
+</html>

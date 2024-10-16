@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "SubCategory";
+    Layout = "~/Views/Shared/admin.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-4 p-5" style="background:white;">
+            <h2 style="text-align:center;">ADD<b class="txt-mycolor"> Subcategory</b></h2>
+            <form method="post" enctype="multipart/form-data">
+                <b>  Choose Category</b><br />
+                <select class="form-control form-select" name="category" required>
+                    <option value="0">Choose Category</option>
+
+                    @{
+                        if (ViewBag.subcat != null)
+                        {
+                            foreach (var data in ViewBag.subcat.Rows)
+                            {
+                                <option value="@data[0]">@data[1]</option>
+
+                            }
+                        }
+                    }
+                </select><br />
+                <b>SubCategory Name</b><br />
+                <input type="text" name="subcatname" required placeholder="Enter SubCategory" class="form-control" /><br />
+                <b> SubCategory Icon</b><br />
+                <input type="file" name="subcaticon" class="form-control" required /><br />
+                <input type="Submit" value="ADD NOW" class="text-light form-control bg-mycolor" />
+            </form>
+        </div>
+        <div class="col-sm-8 ps-5 pt-4">
+            <table class="table table-bordered table-striped-columns ">
+                <thead>
+                    <tr>
+                        <th>Sr</th>
+                        <th>Category Name</th>
+                        <th>SubCategory Name</th>
+                        <th>Picture</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        if (ViewBag.subcategory != null)
+                        {
+                            foreach (var data in ViewBag.subcategory.Rows)
+                            {
+                                <tr>
+                                    <td>@data[0]</td>
+                                    <td>@data[1]</td>
+                                    <td>@data[2]</td>
+                                    <td><img src="~/Content/subcatpic/@data[3]" height="50px" width="50px" /></td>
+                                    <td>
+                                        <i class="fa-solid fa-check text-success p-2"></i>
+                                        <i class="fa-solid fa-trash text-danger p-2"></i>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

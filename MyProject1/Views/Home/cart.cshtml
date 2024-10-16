@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "cart";
+    Layout = "~/Views/Shared/general.cshtml";
+}
+
+<style>
+    .c {
+        font-family: 'Times New Roman';
+    }
+
+    .x1 {
+        color: #311B92;
+    }
+
+    .a2 {
+        min-height: 50px;
+    }
+
+    .b {
+        background: lightgrey;
+    }
+</style>
+<h1 class="c text-center x1">CART</h1>
+<div class="row p-4 a2 ">
+    <div class="col-sm-8 text-start m-1 b">
+        <!--column 1 start-->
+        <!--column 1 end-->
+        @{
+            int total = 0;
+            if (ViewBag.Cart != null)
+            {
+                if (ViewBag.Cart.Rows.Count > 0)
+                {
+                    foreach (var c in ViewBag.Cart.Rows)
+                    {
+                        <div class="row my-3 me-5">
+                            <div class="col-sm-2 mx-1 ">
+                                <img src="~/Content/productpic/@c[9]" height="70px" width="70px" />
+                            </div>
+                            <div class="col-sm-3">
+                                <b class="c">@c[3]</b><br />
+                                <b>Pack Size: </b><small> @c[4]</small><br />
+                                <b>Model: </b><small>@c[5]</small>
+                            </div>
+
+                            <div class="col-sm-3 ">
+                                <b class="c">Quantity: @c[14] items</b><br />
+                            </div>
+
+
+                            <div class="col-sm-1 c text-center ">
+                                <b>Total:</b><br />
+                                <b>@c[15]</b>
+                                @{
+                                    total = total + Convert.ToInt32(c[15]);
+                                }
+                            </div>
+
+
+                            <div class="col-sm-1 text-danger mt-3  me-5">
+                                <a href="/home/deleteitem?cid=@c[11]"><i class="fa-solid fa-trash text-danger"></i></a>
+                            </div>
+
+                        </div>
+                    }
+                }
+            }
+        }
+
+    </div>
+    <div class="col-sm-3 ms-5 card p-5" style="max-height:400px">
+        <h3 class="text-center">Billing <span class="txt-mycolor">Details</span></h3>
+        <div class="row">
+            <div class="col-sm-6">                
+                <br />
+                <p class="text-start ps-2">Sub Total:</p>
+                <p class="text-start ps-2">Delivery Charge:</p>                
+                <br />
+                <br />
+                <b class="text-start ps-2">Total(INR):</b>
+            </div>
+            <div class="col-sm-6">
+                <br />
+                <b class="text-end pe-2"><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>@total </b>
+                <br />
+                <br />
+                <b class="text-end pe-2"><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>30.00/-</b>
+                <br />
+                <br />
+                <br/>
+                <b class="text-end pe-2"><i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>@(total+30)/- Only</b>
+            </div>
+
+            <center><input type="Submit" onclick="proceed()" value="Proceed to Checkout" class="btn bg-mycolor text-light w-75 mt-3" /></center>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function proceed() {
+        var res = confirm("Do you want to order all products?");
+        if (res) {
+            location.href = "/home/order";
+        }
+        else {
+            return false;
+        }
+    }
+</script>

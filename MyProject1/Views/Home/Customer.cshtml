@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/general.cshtml";
+}
+<style>
+    .a{
+        min-height:500px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 mt-5 a " style="background:white; box-shadow:0px 0px 20px 5px rgba(128, 128, 128,.5); ">
+            <form method="post" class="mt-3">
+                <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <b class="mx-auto fs-3" style="text-align:center;">Contact<span class="txt-mycolor">Us</span></b><br />
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <b>Name</b>
+                <input type="text" placeholder="Enter Your Name" required class="form-control" name="name" /><br />
+                <b>Email</b>
+                <input type="email" placeholder="Enter Your Email" required class="form-control" name="email" /><br />
+                <b>Mobile Number</b>
+                <input type="number" required placeholder="Enter Your Number" name="mobno" class="form-control" /><br />
+                <b>Massage</b>
+                <textarea rows="2" class="form-control" name="message" placeholder="Enter Your Enquiry Question Here." required>
+</textarea> <br />
+                <input type="submit" value="Save" class="form-control bg-mycolor text-light" />
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>

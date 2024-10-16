@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/general.cshtml";
+}
+<div class="container-fluid">
+    <h2 class="text-center p-2 text-center">Product</h2>
+    <div class="row">
+        <div class="col-sm-2 mt-4">
+            <!--Start Subcategory List-->
+            <div class="list-group">
+                <a href="#" class="bg-mycolor list-group-item list-group-item-action active text-center">
+                    SubCategory List
+                </a>
+                @{
+                    if (ViewBag.subcat != null)
+                    {
+                        foreach (var cat in ViewBag.subcat.Rows)
+                        {
+                            <a href="/home/product?cid=@cat[1]&scat=@cat[0]" class="list-group-item list-group-item-action"><img src="~/Content/subcatpic/@cat[3]" height="30px" width="30px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @cat[2]"</a>
+                        }
+                    }
+                }
+
+            </div>
+            <!--End SubCategory List-->
+
+        </div>
+        <div class="col-sm-10">
+            <div class="row">
+                <!--Start Products-->
+                @{
+                    if (ViewBag.product1 != null)
+                    {
+                        foreach (var s in ViewBag.product1.Rows)
+                        {
+                            <div class="col-lg-2 col-md-4 col-sm-12">
+                                <div class="card mt-4">
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        @s[11]%
+
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span>
+                                    <img src="~/Content/productpic/@s[9]" class="card-img-top" style="min-height:200px; max-height:200px;" />
+                                    <div class="card-body">
+                                        <b>@s[3]</b>
+                                        1KG<br />
+                                        <i class="fa-solid fa-indian-rupee-sign"></i>
+                                        <s>@s[6]</s><b class="ps-1">@s[7]</b>
+
+                                        <form action="/home/Addtocart" method="post">
+
+
+                                            <input type="hidden" name="salerate" value="@Convert.ToInt32(s[7])" />
+                                            <input type="hidden" name="pid" value="@s[0]" />
+                                            <div class="input-group">
+                                                <b class="input-group-text" onclick="mFun(@s[0])">
+                                                    <i class="fa-solid fa-minus "></i>
+                                                </b>
+                                                <input type="text" id="txtcard_@s[0]" name="quantity" class="form-control text-center fs-5" value="0" />
+                                                <b class="input-group-text" onclick="pFun(@s[0])">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </b>
+                                            </div>
+                                            <input type="submit" value="ADD" class="text-light btn bg-mycolor mt-2" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+                <!--End Products-->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var i = 0
+        function pFun(id) {
+            var t = document.getElementById("txtcard_" + id)
+            i = t.value;
+            i++;
+            t.value = i;
+        }
+        function mFun(id) {
+            var t = document.getElementById("txtcard_" + id)
+            i = t.value;
+            if (i > 0) {
+                i--;
+                t.value = i;
+            }
+        }
+    </script>
+</div>

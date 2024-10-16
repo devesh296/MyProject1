@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "signUp";
+    Layout = "~/Views/Shared/general.cshtml";
+}
+<link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/css/all.css" rel="stylesheet" />
+<script src="~/Content/js/bootstrap.bundle.js"></script>
+<style>
+    .a{
+       
+        height: 700px;
+    }
+    .b {
+        min-height: 400px;
+        background: white;
+        margin: 50px 300px;
+        padding: 30px 30px;
+        box-shadow:0px 0px 25px 5px rgb(0,0,0,.5);
+        border-radius:10px;
+    }
+</style>
+<form method="post">
+    <div class="container-fluied a mt-4">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-8 b ">
+                    <h3 class="txt-mycolor"><b><u>Re</u>gistration</b></h3>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <b>Full Name</b><br /><input type="text" required name="name" class="form-control" placeholder="Enter your name" />
+                        </div>
+                        <div class="col-sm-6">
+                            <b>pin Code</b><br /><input type="number" required name="pincode" placeholder="Enter your pin code" class="form-control c" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <b>Email</b><br /><input type="Email" required name="email" class="form-control" placeholder="Enter your email" />
+
+                        </div>
+                        <div class="col-sm-6">
+                            <b>Phone Number</b><br /><input type="number" required name="mobno" class="form-control" placeholder="Enter your number" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <b>Password</b><br /><input type="password" required name="password" id="password " class="form-control" placeholder="Enter your password" />
+                        </div>
+                        <div class="col-sm-6">
+                            <b>Land Mark</b><br /><input type="text" name="landmark" required placeholder="Enter your land mark" class=" form-control c" />
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-6 ">
+                            <b>Address</b><br /><textarea rows="2" placeholder="Enter Your Address" required name="address" class="form-control"></textarea>
+                        </div>
+                        <div class="col-sm-6 pt-4">
+                            <input type="submit" value="Register Now" class="bg-mycolor text-light form-control " />
+                        </div>
+                    </div>
+                </div>
+           </div>
+      </div>
+    </div>
+</form>

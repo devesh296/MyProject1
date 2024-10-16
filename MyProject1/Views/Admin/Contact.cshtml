@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/admin.cshtml";
+}
+
+<div class="container mt-5">
+    <table class="table table-bordered table-striped-columns">
+        <thead>
+            <tr>
+                <th>Sr No.</th>
+                <th>Name</th>
+                <th>Mobile No.</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Date of Enquiry</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (ViewBag.enquiry != null)
+                {
+                    foreach (var enq in ViewBag.enquiry.Rows)
+                    {
+                        <tr>
+                            <td>@enq[0]</td>
+                            <td>@enq[1]</td>
+                            <td>@enq[2]</td>
+                            <td>@enq[3]</td>
+                            <td>@enq[4]</td>
+                            <td>@enq[5]</td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

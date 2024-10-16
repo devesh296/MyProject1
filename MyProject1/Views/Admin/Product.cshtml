@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/admin.cshtml";
+}
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row mt-5">
+            <div class="col-sm-5 mx-auto p-5" style="border-radius:10px; background: white; box-shadow: 0px 0px 20px 5px rgba(128, 128, 128,.5); ">
+                <h3 style="text-align:center;">ADD<b class="txt-mycolor">Product</b></h3>
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+
+                        <b>Choose Category</b><br />
+                        <select class="form-control form-select" required name="pcat">
+                            <option value="0">Choose Product Category</option>
+                            @{
+                                if (ViewBag.category != null)
+                                {
+                                    foreach (var data in ViewBag.category.Rows)
+                                    {
+                                        <option value="@data[0]">@data[1]</option>
+
+                                    }
+                                }
+                            }
+                        </select>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <b>Choose Subcategory</b><br />
+                        <select class="form-control form-select" required name="psubcat">
+                            <option value="0"> Choose Product Subcategory</option>
+
+                            @{
+                                if (ViewBag.subcat != null)
+                                {
+                                    foreach (var data in ViewBag.subcat.Rows)
+                                    {
+                                        <option value="@data[0]">@data[2]</option>
+
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-12">
+                        <b>Product Name</b><br />
+                        <input type="text" class="form-control" required name="pname" />
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-12">
+                        <b>Product Details</b><br /><textarea rows="2" required class="form-control" name="pdesc"></textarea>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <b>Model</b><br /><input type="text" required class="form-control" name="pmodel" />
+                    </div>
+                    <div class="col-sm-6">
+                        <b>Pack/Size</b><br /><input type="text" required class="form-control" name="psize" />
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <b>Sale Rate</b><br /><input type="text" required class="form-control" name="psalerate" />
+                    </div>
+                    <div class="col-sm-6">
+                        <b>MRP.</b><br /><input type="text" required class="form-control" name="pmrp" />
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-6">
+                        <b>Choose Picture</b><br /><input type="file" required class="form-control" name="picon" />
+                    </div>
+                    <div class="col-sm-6 mt-4">
+                        <input type="submit" required class="form-control btn bg-mycolor text-light " value="ADD PRODUCT NOW" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+    <div class="col-sm-12 mt-5">
+        <table class="table table-bordered table-striped-columns">
+            <thead>
+                <tr>
+                    <th>Sr</th>
+                    <th>category</th>
+                    <th>SubCategory</th>
+                    <th>Product Name</th>
+                    <th>Detail</th>
+                    <th>Model</th>
+                    <th>MRP</th>
+                    <th>SaleRate</th>
+                    <th>Pack/Size</th>
+                    <th>Picture</th>
+                    <th>Add date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (ViewBag.all != null)
+                    {
+                        foreach (var n in ViewBag.all.Rows)
+                        {
+                            <tr>
+                                <td>@n[0]</td>
+                                <td>@n[1]</td>
+                                <td>@n[2]</td>
+                                <td>@n[3]</td>
+                                <td>@n[4]</td>
+                                <td>@n[5]</td>
+                                <td>@n[6]</td>
+                                <td>@n[7]</td>
+                                <td>@n[8]</td>
+                                <td><img src="~/Content/productpic/@n[9]" height="50px" width="50px"/></td>
+                                <td>@n[10]</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/general.cshtml";
+}
+
+<div class="row bg-light mt-5">
+    <div class="col-sm-4">
+        <img src="~/Content/images/dev p1.jpg" class="ps-5" style="max-height: 300px;" />
+    </div>
+    <div class="col-sm-8 pt-5">
+        <div class="row">
+            <div class="col-sm-12 pt-3">
+                <b>Name:</b>Devesh Chaturvedi
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 pt-3">
+                <b>Mobile:</b> +917887081306
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 pt-3">
+                <b>Email:</b> deveshc650@gmail.com
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 pt-3">
+                <b>Address:</b>Vill+Post Narayanpur Ghughli Maharajganj UP <b>Pin:</b> 273151
+                <br /><br />
+                <!-- start modal -->
+                <!-- Button trigger modal -->
+                <a href="#" data-bs-target="#exampleModal" data-bs-toggle="modal"><span class="text-light btn bg-mycolor">Edit profile</span></a>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <span class="text-light"> Name</span><br /><input type="text" placeholder="Devesh Chaturvedi" class="form-control" />
+                                <span class="text-light">Mobile </span><br /><input type="text" placeholder="7887081306" class="form-control" />
+                                <span class="text-light">Profile Photo </span><br /><input type="file" class="form-control" />
+                                <span class="text-light">address</span><br /><textarea row="4" class="form-control" placeholder="Ghughli Uttar pradesh"></textarea>
+                                <br />
+                                <input type="reset" value="Update" class="text-light bg-mycolor" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end modal -->
+            </div>
+        </div>
+    </div>
+</div>
+
